@@ -2,7 +2,7 @@
 
 A beautiful, real-time cryptocurrency monitoring dashboard with live price tracking and interactive charts. Built with React, TypeScript, and modern web technologies.
 
-![MySoft Crypto Monitor](https://i.imgur.com/YourScreenshot.png)
+![MySoft Crypto Monitor](https://cerulean-gecko-e48311.netlify.app/)
 
 ## ✨ Features
 
