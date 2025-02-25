@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes matrix-bg {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff; }
+  100% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes borderGlow {
+  0% { border-color: rgba(0, 255, 255, 0.1); }
+  50% { border-color: rgba(0, 255, 255, 0.5); }
+  100% { border-color: rgba(0, 255, 255, 0.1); }
+}
+
+@keyframes priceFlash {
+  0% { color: #fff; }
+  50% { color: #0ff; }
+  100% { color: #fff; }
+}
+
+@keyframes chartGlow {
+  0% { filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.3)); }
+  50% { filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.5)); }
+  100% { filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.3)); }
+}
+
+@keyframes gridLineFlow {
+  0% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.1; }
+}
+
+@keyframes chartBackgroundPulse {
+  0% { background: rgba(0, 255, 255, 0.02); }
+  50% { background: rgba(0, 255, 255, 0.05); }
+  100% { background: rgba(0, 255, 255, 0.02); }
+}
+
+.cyberpunk-bg {
+  background: linear-gradient(45deg, #000000, #1a1a1a);
+  background-size: 400% 400%;
+  animation: matrix-bg 15s ease infinite;
+}
+
+.neon-text {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.glitch-effect:hover {
+  animation: glitch 0.3s linear infinite;
+}
+
+.crypto-card {
+  backdrop-filter: blur(10px);
+  background: rgba(16, 16, 16, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease-out, borderGlow 4s infinite;
+}
+
+.chart-container {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 10px;
+  animation: slideIn 0.5s ease-out, chartGlow 4s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), transparent);
+  animation: chartBackgroundPulse 4s infinite;
+  pointer-events: none;
+}
+
+.chart-container canvas {
+  position: relative;
+  z-index: 1;
+}
+
+.price-pulse {
+  animation: pulse 2s infinite;
+}
+
+.price-update {
+  animation: priceFlash 0.5s ease-out;
+}
+
+.crypto-item {
+  animation: slideIn 0.5s ease-out backwards;
+}
+
+.crypto-item:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+.grid-line {
+  animation: gridLineFlow 4s infinite;
+}
+
+.chart-title {
+  position: relative;
+  display: inline-block;
+}
+
+.chart-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #0ff, transparent);
+  animation: borderGlow 2s infinite;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 255, 0.3) rgba(0, 0, 0, 0.3);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 255, 255, 0.5);
+}
